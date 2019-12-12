@@ -19,7 +19,7 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>個人線上履歷</title>
+  <title>Resume - Start Bootstrap Theme</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,10 +52,6 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
           <a class="nav-link js-scroll-trigger" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="index2.php">Myself</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
         </li>
         <li class="nav-item">
@@ -87,11 +83,9 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-top" id="about">
       <div class="w-100">
-        <br> <br> <br>
         <h1 class="mb-0"><?php echo $user["name"];?>
           <span class="text-primary">Leo</span>
         </h1>
-        <br>
         <div class="subheading mb-5">0975370801
           <a href="mailto:name@email.com">leohus999@hotmail.com</a>
         </div>
@@ -124,7 +118,7 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
           <div class="resume-content">
             <h3 class="mb-0"><?php echo $row["exposure"];?></h3>
             <div class="subheading mb-3"><?php echo $row["m1"];?></div>
-            <div class="subheading mb-3"><a href='<?php echo $row["link1"];?> '>  <?php echo $row["link1"];?> </a> </div>
+            <div class="subheading mb-3"><?php echo $row["link1"];?></div>
           </div>
           
       </div>
@@ -134,7 +128,7 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     </section>
 
     <hr class="m-0">
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-top" id="education">
       <div class="w-100">
         <h2 class="mb-5">學經歷</h2>
     <?php
@@ -155,78 +149,76 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         <?php
 }
 ?>
- 
+        
     </section>
-  
     <hr class="m-0">
-<br><br><br><br>
-    <h2 class="mb-5"></h2>  
-   
-<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
-<div class="w-100">
-      <ul class="fa-ul mb-0">
+      <h2 class="mb-5">專業技能</h2>
 
-
-     
-      <div class="subheading mb-5 align-items-top "><h2>Programming Languages &amp; Tools</h2></div>
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
         <ul class="list-inline dev-icons">
-    <i class="fab fa-html5"></i>
-  <li class="list-inline-item">
+          <li class="list-inline-item">
+            <i class="fab fa-html5"></i>
+          </li>
+          <li class="list-inline-item">
             <i class="fab fa-css3-alt"></i>
           </li>
           <li class="list-inline-item">
             <i class="fab fa-js-square"></i>
           </li>
+          <li class="list-inline-item">
+            <i class="fab fa-angular"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-react"></i>
           </li>
           <li class="list-inline-item">
             <i class="fab fa-node-js"></i>
           </li>
+          <li class="list-inline-item">
+            <i class="fab fa-sass"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-less"></i>
           </li>
           <li class="list-inline-item">
             <i class="fab fa-wordpress"></i>
           </li>
           <li class="list-inline-item">
-          <i class="fab fa-python"></i>
+            <i class="fab fa-gulp"></i>
           </li>
-</ul>
-<br> 
-<div class="subheading mb-3">專業軟體技術<div>
-
-
-      </div>
-      
-    <?php
-        foreach ($pdo->query('select * from skill' ) as $row) {
-      ?>  
-      
-      <ul class="fa-ul mb-0">
           <li class="list-inline-item">
+            <i class="fab fa-grunt"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-npm"></i>
+          </li>
+        </ul>
+        <div class="subheading mb-3">專業執照<div>
+<section class="resume-section p-3 p-lg-5 d-flex align-items-top" id="skills">
+      <div class="w-100">
+      <ul class="fa-ul mb-0">
+    <?php
+        foreach ($pdo->query('select * from license' ) as $row) {
+      ?>
+
+
+  
+          <li>
             <i class="fa-li fa fa-check"></i>
-            <li><?php echo $row['s1'];?></li>
-           
-            </ul>
+            <?php echo $row['l1'];?></li>
             <?php
   }
 
 ?>
-
-<!-- <div class="subheading mb-3 align-items-end ">Programming Languages &amp; Tools</div> -->
-
-        <!-- <ul class="list-inline dev-icons">
-      
-            
-          </li>
-        
-        </ul> -->
-       
+        </ul>
+      </div>
     </section>
-    <hr class="m-0">
     <?php
 // ? 為要放入查詢句子的變數
 $sql="select * from introduction where 1";
 $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 ?>
-  
+    <hr class="m-0">
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
       <div class="w-100">
@@ -235,7 +227,8 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         <p class="mb-0"></p>
       </div>
     </section>
-
+    <h2 class="mb-5">Awards &amp; Certifications</h2>
+    <hr class="m-0">
     <section class="resume-section p-3 p-lg-5 d-flex align-items-top" id="job">
       <div class="w-100">
 
@@ -259,38 +252,53 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
       <?php
 } 
 ?>
- 
-   </section>
-   <hr class="m-0"> 
- 
-
-   <section class="resume-section p-3 p-lg-5 d-flex align-items-top" id="awards">
-       
-
-          <div class="w-100">
-          <ul class="fa-ul mb-0">
-          <h2 class="mb-5">專業執照</h2>
-    <?php
-        foreach ($pdo->query('select * from license' ) as $row) {
+    </section>
+    <hr class="m-0">
+<section class="resume-section p-3 p-lg-5 d-flex align-items-top" id="awards">
+     
+<h2 class="mb-5">專業證照</h2>
+      <?php
+    $all=$pdo->query('select * from license')->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($all as $row) {
+            echo "<ul>";
       ?>
-        
-          <div class="w-100">
-          <ul class="fa-ul mb-0">
 
-      <li>
-        <i class="fa-li fa fa-trophy text-warning"></i>
-      </li>
-      <li><h4><?php echo $row['l1'];?></h4></li>
-        <//ul>
+<div class="w-100">
+ 
+        <ul class="fa-ul mb-0">
+        <ul class="fa-ul mb-0">
+       
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            <?php echo $row['l1'];?>
+          </li>
+
+          <li>
+          <i class="fa-li fa fa-trophy text-warning"></i>
+            <?php echo $row['l2'];?>
+          </li>
+         
+        </ul>
+        <?php
+/*            foreach($row as $k=> $r){
+ 
+          if(!empty($r)){
+             if($k!="id")
+              echo "<li>$r</li>";
+         
+          }
+       } */
+        ?>
+</ul>
+        </div>
+<?php
+    }
+
+?>
+      </div>
+    </section>
+
   </div>
-  <?php
-} 
-?>  
-</section>
-
-</div>
-  </div>
-
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
