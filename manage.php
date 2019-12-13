@@ -96,7 +96,8 @@ if(!empty($_FILES) && $_FILES['file']['error']==0){
     ?>
 
 </table>
-
+<br>
+<input type ="button" onclick="history.back()" value="回上一頁"></input>
 
 </body>
 </html>
